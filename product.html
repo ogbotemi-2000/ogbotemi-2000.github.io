@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html lang="en"><head>
+    <title>Product Preview | Ideas and tryouts</title>
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#ff056">
+    <meta name="color-scheme" content="light">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/tailwind.min.css">
+    <style>
+	@media (min-width: 500px) {
+  #growShrink .fluid.base\:show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    position: relative;
+  } 
+}
+@media (min-width: 640px) {
+  #growShrink .fluid.sm\:show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    position: relative;
+  } 
+}
+@media (min-width: 768px) {
+  #growShrink .fluid.md\:show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    position: relative;
+  } 
+}
+@media (min-width: 1024px) {
+  #growShrink .fluid.lg\:show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    position: relative;
+  } 
+}
+@media (min-width: 1280px) {
+  #growShrink .fluid.xl\:show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    position: relative;
+  }
+  #growShrink a+div {
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+#growShrink .fluid {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+#growShrink a+div a {
+  margin: 0;
+  display: block;
+  padding: 1em;
+  font-size: 14px;
+  white-space: pre;
+}
+#growShrink a {
+  transition: opacity 0.2s ease, visibility 0s;
+  padding: 0.8em;
+  margin: 0.2em;
+  display: inline-block;
+  color: inherit;
+  text-decoration: inherit;
+  font-family: sans-serif;
+}
+#growShrink a+div{
+  display: inline-block;
+  position: relative;
+}
+#growShrink a+div > div{
+  right: 0px;
+  position: absolute;
+  margin-top: -0.4em;
+  opacity: 0;
+  color: inherit;
+  background: #222;
+  pointer-events: none;
+  transition: margin-top 0.4s ease, opacity 0.2s 0.1s;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 0.2em 0;
+}
+#growShrink a+div:hover > div,
+#growShrink a+div:focus-within > div {
+  margin-top: 0em;
+  opacity: 1;
+  pointer-events: auto;
+}
+#growShrink {
+  text-align: center;
+  color: #bbb;
+  margin: 0.5em 1em;
+}
+#growShrink button {
+  padding: 0.6em 1.2em;
+  margin: 0.4em;
+  color: inherit;
+  border-radius: 50px;
+}
+#growShrink button, #growShrink a+div > div{
+  border: 2px solid #ccc;
+}
+#growShrink a:hover,
+#growShrink button:hover {
+  background: #ddd;
+  color: black;
+}
+#growShrink hr {
+  border-bottom: 2px solid currentColor;
+  position:absolute;
+  left:26%;
+  right:26%;
+  top: 2%;
+}
+
+#growShrink svg {
+  height: 1.5em;
+  vertical-align:middle;  
+}
+svg {
+  fill: currentColor;
+}
+    </style>
+</head>
+  
+<body style="background:#222;" class="text-white pt-32">
+  <div class="bottom-32 top-10 absolute inset-0  bg-gradient-to-br from-black via-gray-900 to-red-900 opacity-40"></div>
+<main class="md:w-1/2 sm:flex-nowrap flex-wrap w-full sm:w-3/4 m-auto space-x-4 flex">
+  <section>
+<nav id="growShrink" class="relative"><p class="mb-3 border-b-2 inline-block p-3 absolute bottom-full left-0">Product</p><div><hr><a href="javascript:void(0)" class="align-middle"><svg class="m-auto w-14" id="shapes" viewBox="0 0 512 512"><path d="M128,256A128,128,0,1,0,256,384,128,128,0,0,0,128,256Zm379-54.86L400.07,18.29a37.26,37.26,0,0,0-64.14,0L229,201.14C214.76,225.52,232.58,256,261.09,256H474.91C503.42,256,521.24,225.52,507,201.14ZM480,288H320a32,32,0,0,0-32,32V480a32,32,0,0,0,32,32H480a32,32,0,0,0,32-32V320A32,32,0,0,0,480,288Z"></path></svg></a><a href="javascript:void(0)">Markets</a><a href="javascript:void(0)">Fiat</a><a href="javascript:void(0)" class="fluid base:show">Exchange</a><a href="javascript:void(0)" class="fluid sm:show">Future Trades</a><a href="javascript:void(0)" class="fluid md:show">Leverage</a><a href="javascript:void(0)" class="fluid lg:show">Lockup Mining</a><a href="javascript:void(0)" class="fluid xl:show">Assets</a><a href="javascript:void(0)" class="fluid xl:show">APP</a><a href="javascript:void(0)" class="fluid xl:show">Alternate</a><div><button>•••</button><div><div><a href="javascript:void(0)" class="">Future Trades</a><a href="javascript:void(0)" class="">Leverage</a><a href="javascript:void(0)" class="">Lockup Mining</a><a href="javascript:void(0)" class="">Assets</a><a href="javascript:void(0)" class="">APP</a><a href="javascript:void(0)" class="">Alternate</a></div></div></div></div></nav><hr class="mb-4">
+<article class="relative m-4" style="z-index:-1"><p class="border-b-2 border-t-2 inline-block p-3 mb-4">Gains</p>
+<section class="space-x-8 flex">
+
+<div class="text-center text-red-400"><svg class="m-auto p-2 h-14 w-14" id="code" viewBox="0 0 640 512"><path d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"></path></svg><p class="mt-2 font-fantasy text-xs" style="font-family: cursive;">&lt; 630 bytes of JS</p></div><div class="text-center text-green-200"><svg class="m-auto p-2 h-14 w-14" id="circle-notch" viewBox="0 0 512 512"><path d="M288 39.056v16.659c0 10.804 7.281 20.159 17.686 23.066C383.204 100.434 440 171.518 440 256c0 101.689-82.295 184-184 184-101.689 0-184-82.295-184-184 0-84.47 56.786-155.564 134.312-177.219C216.719 75.874 224 66.517 224 55.712V39.064c0-15.709-14.834-27.153-30.046-23.234C86.603 43.482 7.394 141.206 8.003 257.332c.72 137.052 111.477 246.956 248.531 246.667C393.255 503.711 504 392.788 504 256c0-115.633-79.14-212.779-186.211-240.236C302.678 11.889 288 23.456 288 39.056z"></path></svg><p class="mt-2 font-fantasy text-xs" style="font-family: cursive;">Better UI/UX out of the box</p></div>
+<div class="text-center text-pink-200"><svg class="m-auto p-2 h-14 w-14" id="certificate" viewBox="0 0 512 512"><path d="M458.622 255.92l45.985-45.005c13.708-12.977 7.316-36.039-10.664-40.339l-62.65-15.99 17.661-62.015c4.991-17.838-11.829-34.663-29.661-29.671l-61.994 17.667-15.984-62.671C337.085.197 313.765-6.276 300.99 7.228L256 53.57 211.011 7.229c-12.63-13.351-36.047-7.234-40.325 10.668l-15.984 62.671-61.995-17.667C74.87 57.907 58.056 74.738 63.046 92.572l17.661 62.015-62.65 15.99C.069 174.878-6.31 197.944 7.392 210.915l45.985 45.005-45.985 45.004c-13.708 12.977-7.316 36.039 10.664 40.339l62.65 15.99-17.661 62.015c-4.991 17.838 11.829 34.663 29.661 29.671l61.994-17.667 15.984 62.671c4.439 18.575 27.696 24.018 40.325 10.668L256 458.61l44.989 46.001c12.5 13.488 35.987 7.486 40.325-10.668l15.984-62.671 61.994 17.667c17.836 4.994 34.651-11.837 29.661-29.671l-17.661-62.015 62.65-15.99c17.987-4.302 24.366-27.367 10.664-40.339l-45.984-45.004z"></path></svg><p class="mt-2 font-fantasy text-xs" style="font-family: cursive;">backwards compatibility guarantee</p></div><div class="text-center text-pink-200"><svg class="m-auto p-2 h-14 w-14" id="seedling" viewBox="0 0 512 512"><path d="M64 96H0c0 123.7 100.3 224 224 224v144c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V320C288 196.3 187.7 96 64 96zm384-64c-84.2 0-157.4 46.5-195.7 115.2 27.7 30.2 48.2 66.9 59 107.6C424 243.1 512 147.9 512 32h-64z"></path></svg><p class="mt-2 font-fantasy text-xs" style="font-family: cursive;">plain'ol CSS styling awaiting customizations</p></div></section></article></section>
+  <section class="sm:border-t-0 sm:border-l-2 border-t-2 text-center text-sm space-y-2 p-4 flex-1"><h2 class="font-semibold text-base font-serif">Responsively collapses or expands the items on a nav</h2><p>you can easily prioritize a link to always show no matter the viewport size by placing it first in the navigation using this design approach</p></section></main>
+  <script>function grow_shrink(e,i,c,n,d){d=grow_shrink,n=[500,640,768,1024,1280],c=document.createElement("div"),d.cached||={},d.arr||=[].slice.call((d.el=window.growShrink).querySelectorAll(".fluid")),d.dump||=d.el.querySelector("a+div>div"),(e=n.find(((c,n)=>(i=n,c>e))))&&d.vw!==e&&!d.cached[d.vw=e]&&d.arr.forEach(((n,r,o,l)=>{r+1>i&&(l=(n=n.cloneNode(!0)).classList.contains("clicked"),!0)&&(n.className=l?"clicked":"",c.appendChild(n)),d.cached[e]||=c})),d.dump.replaceChild(d.cached[e]||c,d.dump.firstChild)}grow_shrink(window.innerWidth),window.onresize=function(){setTimeout((function(){grow_shrink(window.innerWidth)}),500)};
+</script>
+<!-- </body> --></body></html>

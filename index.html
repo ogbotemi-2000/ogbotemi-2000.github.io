@@ -1,149 +1,254 @@
-<!DOCTYPE HTML>
-<html lang="en"><head>
-    <title>Product Preview | Ideas and tryouts</title>
-    <meta charset="utf-8">
-    <meta name="theme-color" content="#ff056">
-    <meta name="color-scheme" content="light">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/tailwind.min.css">
-    <style>
-	@media (min-width: 500px) {
-  #growShrink .fluid.base\:show {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    position: relative;
-  } 
+<!DOCTYPE HTML><html lang="en" class=""><head><title>Ogbotemi - Portfolio - Cloudflare Page</title><meta charset="utf-8"><meta name="theme-color" content="#ff056"><meta name="color-scheme" content="light"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="content-language" content="en-br"><meta name="description" content="A JAMStack portfolio website">
+<meta name="keywords" description="Cloudflare Pages Portfolio Ogbotemi Vanilla HTML Vanilla JavaScript Lazyloading Nodejs pipeline Optimized image loading Alternative to Task Runners in Nodejs efficient Nodejs server">
+       
+    <link rel="stylesheet" preload="true" href="/css/page.css">
+    <link rel="stylesheet" href="/css/tailwind.min.css">
+    <link rel="stylesheet" href="/css/all.min.css">
+    
+<script src="/js/utils.js" id="utils"></script>
+    
+    <script src="/js/ripples.js"></script>    
+    
+				
+	
+	
+	<script src="/js/Gradient.js"></script><style>
+ .circle-paused svg circle {
+  animation-play-state: paused
 }
-@media (min-width: 640px) {
-  #growShrink .fluid.sm\:show {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    position: relative;
-  } 
+button.ripple>*, a.ripple>* {
+  pointer-events:none;
 }
-@media (min-width: 768px) {
-  #growShrink .fluid.md\:show {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    position: relative;
-  } 
+html.preloaded .marquee-y > * {
+  animation: none;
 }
-@media (min-width: 1024px) {
-  #growShrink .fluid.lg\:show {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    position: relative;
-  } 
+.marquee-y > * {
+  animation: marquee-y 4s calc(var(--t) - 4s) linear infinite;
 }
-@media (min-width: 1280px) {
-  #growShrink .fluid.xl\:show {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    position: relative;
-  }
-  #growShrink a+div {
-    visibility: hidden;
-    pointer-events: none;
-  }
+@keyframes marquee-y {
+   to {
+       transform: translateY(var(--px));
+    }
 }
-
-#growShrink .fluid {
-  opacity: 0;
-  visibility: hidden;
+.\[\&\>\*\]\:absolute>* {
   position: absolute;
 }
-#growShrink a+div a {
-  margin: 0;
-  display: block;
-  padding: 1em;
-  font-size: 14px;
-  white-space: pre;
-}
-#growShrink a {
-  transition: opacity 0.2s ease, visibility 0s;
-  padding: 0.8em;
-  margin: 0.2em;
-  display: inline-block;
-  color: inherit;
-  text-decoration: inherit;
-  font-family: sans-serif;
-}
-#growShrink a+div{
-  display: inline-block;
+/* .relative {
   position: relative;
+} */
+@keyframes fadeIn {
+  0%, 50% {opacity: 0;}
+  100% {opacity: 1;}
 }
-#growShrink a+div > div{
-  right: 0px;
-  position: absolute;
-  margin-top: -0.4em;
+body {
+  animation: 1.5s ease-out fadeIn forwards;
+  background: #282828;
+}
+.bg-near-black {
+    background: #282828;
+}
+.rotext {
+  perspective: calc(3*48px);
+  perspective-origin: top right;
+}
+.rotext > * {
+  --y: 60px;
+  transform: rotateX(90deg) translate3d(0,var(--y),0);
   opacity: 0;
-  color: inherit;
-  background: #222;
-  pointer-events: none;
-  transition: margin-top 0.4s ease, opacity 0.2s 0.1s;
-  border-radius: 12px;
-  overflow: hidden;
-  padding: 0.2em 0;
+/*   transition: transform 0s linear .45s, opacity 0.3s linear; */
+  transition: transform .65s cubic-bezier(.215,.61,.355,1) calc(var(--index,0) * .1s + .55s), opacity .35s linear calc(var(--index,0) * .1s + .55s);
+  transform-origin: center bottom;
+  transform-style:preserve-3d;
 }
-#growShrink a+div:hover > div,
-#growShrink a+div:focus-within > div {
-  margin-top: 0em;
+.rotext.show > * {
+  transform: rotateX(0deg);
   opacity: 1;
-  pointer-events: auto;
 }
-#growShrink {
-  text-align: center;
-  color: #bbb;
-  margin: 0.5em 1em;
+.done {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.5s, transform 0.3s 0.12s ease, visibility 0s 0.06s;
 }
-#growShrink button {
-  padding: 0.6em 1.2em;
-  margin: 0.4em;
-  color: inherit;
-  border-radius: 50px;
+</style><style class="b70beddb-8a03-40a9-a514-589dc67489e6">.vh-full {
+  height: 100vh;
 }
-#growShrink button, #growShrink a+div > div{
-  border: 2px solid #ccc;
+.path {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: dash 5s linear alternate infinite;
 }
-#growShrink a:hover,
-#growShrink button:hover {
-  background: #ddd;
-  color: black;
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
-#growShrink hr {
-  border-bottom: 2px solid currentColor;
-  position:absolute;
-  left:26%;
-  right:26%;
-  top: 2%;
-}
+</style><style class="be88bf2f-65dc-4be1-a04c-5bb025e8266b">
+.z-force-unset { z-index: unset !important; } .\[\&\>\*\]\:inline-block > * { display: inline-block; } html, .smooth-scroll { scroll-behavior: smooth}
+.\[\&\>\*\]\:animate-y-full > * { animation: translate-y-full 0.5s var(--delay) cubic-bezier(0.37, 0, 0.63, 1) forwards; display: inline-block; } .scaffold > div { transition: .6s var(--delay) cubic-bezier(0.645, 0.045, 0.355, 1); } html.preloaded .scaffold { pointer-events: none; } html.preloaded .scaffold > div { --tw-translate-y: -100%; } /*END: of styles for intro text */.skeleton { color: transparent; animation: skeleton-loading 0.8s ease-in-out infinite alternate; } @keyframes skeleton-loading { 0% { background-color: hsl(200, 20%, 80%); } 100% { background-color: hsl(200, 20%, 95%); } }.ripple { overflow: hidden; } .dots-6 { width: 30px; aspect-ratio: 1.154; --_g: no-repeat radial-gradient(farthest-side,currentColor 90%,#0000); background: var(--_g) 50% 0, var(--_g) 0 100%, var(--_g) 100% 100%; background-size: 35% calc(35%*1.154); animation: d6 0.58s infinite; } @keyframes d6 { 50%, 100% { background-position: 100% 100%,50% 0,0 100%; } }</style><style class="ce77170-0f0a-456b-8792-cbe8bb2cfff8">
+@keyframes animate-left-1_10 { 100% { left: 20%; opacity: 1; }}@keyframes inputHighlighter { 0% { background: #5264AE; } 100% { width: 0; background: transparent; } }@keyframes translate-y-full { 0% { transform: translateY(0%); } 100% { transform: translateY(200%); } }@keyframes rotate { from { transform: translateX(0); } to { transform: translateX(-50%); } }@keyframes loader { 0% { transform: /*translateX(-50%) translateY(-50%) */ scale(1) rotate(-90deg); } 25% { transform: scale(1.1) rotate(-90deg); } 50% { transform: scale(1.1) rotate(-180deg); } 75% { transform: scale(1.1) rotate(-180deg); } 100% { transform: /*translateX(-50%) translateY(-50%) */ scale(1) rotate(-180deg); } }</style></head><body onanimationend="if(_debug) return; let cls=['bg-red-400','bg-yellow-500','bg-near-black']; qS('.scaffold>div',!0).forEach((div,i)=>delay(_=>div.classList.add(cls[i]), 750 * i)), delay(_=>event.target==this&&preload(),1e3)"><!-- noise background -->
+<aside class="hidden absolute inset-0 backdrop-blur-xl backdrop-filter" style="background-image: url('../noise.svg')"></aside><!-- scaffold preloader -->
 
-#growShrink svg {
-  height: 1.5em;
-  vertical-align:middle;  
-}
-svg {
-  fill: currentColor;
-}
-    </style>
-</head>
+<aside class="text-white inset-0 scaffold fixed" style="z-index:5;">
+<div class="inset-0 absolute transform-gpu" style="--delay: 280ms;"></div><div class="inset-0 absolute transform-gpu" style="--delay: 150ms;"></div><div class="inset-0 absolute text-center flex items-center justify-center intro flex-col transform-gpu" style="--delay: 0s;" ontransitionend="let phiz=Abbr.to(this,['lEC','pES']); event.propertyName=='transform'&&(event.target==phiz ? new Gradient({ canvas: 'canvas#gradient', colors: ['#93c5fd', '#ef4444', '#f59e0b'] }) : event.target==this&&(delay(_=>qS('nav',!0).forEach(nav=>Abbr.to(nav,'cL').add('show')), 600), togl(gradient,['opacity-50'])))"><div class="pointer-events-none bg-gradient-to-br from-blue-900 via-red-900 to-yellow-500 opacity-50 absolute inset-0 z-1 p-6"><button class="pointer-events-auto text-current border-r border-current p-3 ripple absolute tooltip no-hover -slide no-focus" onclick="document.documentElement.classList.add('preloaded')">enter<i class="fa fa-arrow-right ml-2"></i></button><h3 class="inline-block mx-5 text-lg opacity-50 font-semibold">TL:DR;</h3><button class="text-current border-l border-current p-3 pointer-events-auto ripple relative">contact</button></div>
+
+<h2 class="sm:items-center items-end flex"><div class="lg:-mt-10 sm:scale-125 md:scale-100 transform scale-150 precise-typo-1 relative">O<div class="duration-500 ease-out inset-1 absolute mix-blend-difference text-green-100" style="--tw-bg-opacity: 0.3">O</div></div>
+<div class="md:ml-5 ml-8 text-xl text-left tooltip -slide no-hover absolute" style="z-index:unset">gbotemi<p>gungbamila</p></div></h2><p style="z-index:unset" class="lg:-mt-8 tooltip -slide-y no-hover absolute pt-5 pb-12 md:pt-0">Programmer • SKILLED IN</p><section class="sm:w-96 w-5/6 items-center flex tooltip -slide no-hover absolute mb-10 no-focus"><hr class="border-0 h-px bulge-right flex-1">
+<ul class="h-20 w-2/3 pt-20 overflow-hidden relative z-1 relative font-mono text-center mx-2" onanimationiteration="let ch=this.children, t=event.target, id=dev.skills.indexOf(t.textContent); t.textContent = dev.skills[(id + ch.length) % dev.skills.length]" style="--h: 5rem;height:var(--h);padding-top:var(--h)"><li style="--px: 80px; --t: 4s;">Cloudflare Workers & KV</li>
+<li style="--px: 104px; --t: 5.2s;">Cloudflare DNSSEC setup</li><li style="--px: 128px; --t: 6.4s;">Vercel serverless functions</li></ul><hr class="border-0 h-px bulge-left flex-1"></section>
+
+
+
+<div class="text-sm tooltip -slide-y no-hover mx-10 absolute" style="z-index:unset">with a face drawn <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" class="inline-block h-5" stroke-width="10">
+  <!-- Left Circle -->
+  <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="inherit" class="path"></circle>
+
+  <!-- Right Circle -->
+  <circle cx="150" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="inherit" class="path"></circle>
+
+  <!-- Connecting Line -->
+  <line x1="80" y1="90" x2="120" y2="90" stroke="currentColor" stroke-width="inherit" class="path"></line>
+</svg> within <code>10 seconds</code></div>
+
+<div class="w-1/4 sm:w-36 mx-auto overflow-hidden mb-8">
+<hr class="mt-4 h-1 border-0 rounded-full bg-green-100 to-fro"></div></div></aside><main class="vh-full overflow-scroll"><nav id="growShrink" class="text-center fixed w-5/6 md:w-auto tooltip -slide-y no-hover no-focus text-sm mx-10 top-2 topCta lg:left-0 lg:right-1/2">
+
+<div style="--px:0.5em; --py:0.5em; --tw-bg-opacity:calc(var(--bg-opacity-pad) + 0.1)" class="items-center rounded-full bg-pink-300 flex justify-around [&>*]:align-middle rounded-inherit [&>*]:rounded-inherit inline-block [&>*]:p-xy p-1 cursor-pointer shadow">
+<a class="hover:bg-white relative" style="padding:2px;"><span class="mx-2 relative"><img src="/img/logo.png" class="w-8 inline-block"> • TL:DR;</span></a><a class="hover:bg-white relative"><span class="relative"><i class="fa fa-pen-nib"></i>designs</span></a><a class="hover:bg-white relative fluid sm:show"><span class="relative"><i class="fa fa-th"></i>  Npx grid</span></a><a class="fluid lg:show hover:bg-white"><span class="relative"><i class="fa fa-file-import"></i> I/O <i class="fa fa-file-export"></i></span></a>
+            <div class="text-center lg:absolute lg:invisible relative" style="padding:0">
+                <button class="hover:bg-gray-300 ripple relative text-current" style="border-color: currentcolor;">•••</button>
+                <div style="padding:0px; --tw-bg-opacity:calc(var(--bg-opacity-pad) + 0.7)" class="border border-gray-400 text-sm bg-white top-full backdrop-filter backdrop-blur"><div></div>
+                </div>
+            </div>
+            </div>
+</nav><section class="relative vh-full flex text-black bg-white items-center">
+<!-- main hero content -->
+<main class="z-1 relative w-full md:text-left p-5 text-center tooltip no-hover -slide"><article>
+<section>
+  <h2 style="--index:2" class="rotext"><div class="sm:text-4xl text-3xl duration-300 ease-out">
+    Brand website design
+    </div>
+</h2>
+<p class="mt-2 text-sm">I make UI/UX decisions based on the intended content, target audience, traction, field of knowledge,  etc. of brands, and not out-of-context chatter; visitors quickly get the "gist" thereof.</p>
+  </section>
+  </article>
+  <section class="my-4">
+<figure class="md:w-3/4 sm:w-2/3 mx-auto w-3/4 relative">
+  <img class="rounded-lg m-auto opacity-90" src="/mockups/company-1.png">
+<figcaption class="inset-0 absolute">
+  <button class="border-current border-r-0 border rounded-l-xl absolute right-full p-2 -top-1.5 -bottom-1.5 mr-4 ripple pl-3 tooltip no-hover no-focus slide"><i class="fa fa-chevron-left text-xl"></i></button><button class="border-current border-l-0 border rounded-r-xl absolute left-full p-2 -top-1.5 -bottom-1.5 ml-4 ripple pr-3 tooltip no-hover no-focus -slide"><i class="fa fa-chevron-right text-xl"></i></button>
+</figcaption>
+<aside style="cursor:grab" class="border-2 border-red-500 absolute inset-0 -m-2 right-1/2"></aside></figure>
+</section>
+<aside class="[&>*]:rounded-inherit rounded-full [&>*]:relative sm:flex sm:justify-center">
+<!--   section for controls and progress of showcases -->
   
-<body style="background:#222;" class="text-white pt-32">
-  <div class="bottom-32 top-10 absolute inset-0  bg-gradient-to-br from-black via-gray-900 to-red-900 opacity-40"></div>
-<main class="md:w-1/2 sm:flex-nowrap flex-wrap w-full sm:w-3/4 m-auto space-x-4 flex">
-  <section>
-<nav id="growShrink" class="relative"><p class="mb-3 border-b-2 inline-block p-3 absolute bottom-full left-0">Product</p><div><hr><a href="javascript:void(0)" class="align-middle"><svg class="m-auto w-14" id="shapes" viewBox="0 0 512 512"><path d="M128,256A128,128,0,1,0,256,384,128,128,0,0,0,128,256Zm379-54.86L400.07,18.29a37.26,37.26,0,0,0-64.14,0L229,201.14C214.76,225.52,232.58,256,261.09,256H474.91C503.42,256,521.24,225.52,507,201.14ZM480,288H320a32,32,0,0,0-32,32V480a32,32,0,0,0,32,32H480a32,32,0,0,0,32-32V320A32,32,0,0,0,480,288Z"></path></svg></a><a href="javascript:void(0)">Markets</a><a href="javascript:void(0)">Fiat</a><a href="javascript:void(0)" class="fluid base:show">Exchange</a><a href="javascript:void(0)" class="fluid sm:show">Future Trades</a><a href="javascript:void(0)" class="fluid md:show">Leverage</a><a href="javascript:void(0)" class="fluid lg:show">Lockup Mining</a><a href="javascript:void(0)" class="fluid xl:show">Assets</a><a href="javascript:void(0)" class="fluid xl:show">APP</a><a href="javascript:void(0)" class="fluid xl:show">Alternate</a><div><button>•••</button><div><div><a href="javascript:void(0)" class="">Future Trades</a><a href="javascript:void(0)" class="">Leverage</a><a href="javascript:void(0)" class="">Lockup Mining</a><a href="javascript:void(0)" class="">Assets</a><a href="javascript:void(0)" class="">APP</a><a href="javascript:void(0)" class="">Alternate</a></div></div></div></div></nav><hr class="mb-4">
-<article class="relative m-4" style="z-index:-1"><p class="border-b-2 border-t-2 inline-block p-3 mb-4">Gains</p>
-<section class="space-x-8 flex">
+<button class="ripple border-current border p-0.5" onclick="Abbr.to(this,['nES','cL']).toggle('circle-paused'), qS('svg',!0,this).forEach(ch=>togl(ch,'show'))">
+  <div class="relative"><svg viewBox="0 0 512 512" class="m-auto p-2 w-10 tooltip no-hover no-focus no-focus-within -slide show"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm115.7 272l-176 101c-15.8 8.8-35.7-2.5-35.7-21V152c0-18.4 19.8-29.8 35.7-21l176 107c16.4 9.2 16.4 32.9 0 42z"></path></svg>
+<svg viewBox="0 0 448 512" class="p-2 w-10 absolute top-0 tooltip no-hover no-focus no-focus-within slide">
+                <path d="M144 479H48c-26.5 0-48-21.5-48-48V79c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zm304-48V79c0-26.5-21.5-48-48-48h-96c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48z"></path>
+            </svg></div></button>
+<main onclick="let btn=event.target, i=[].indexOf.call(this.children,btn), mckp=mockups[i]?.split(':'); if(btn.tagName!=='BUTTON') return;
+mckp[0], loadMockups(i,src=>{
+  
+})" onanimationiteration="let c=event.target, n=Abbr.to(Abbr.to(c,['pN','pN','nES'],!0) || this, {3:'fEC'}); [c,n].forEach((el,i)=>Abbr.to(el,'cL')[cLs(i)]('path'))" class="flex justify-center flex-wrap [&>*]:relative [&>*]:rounded-full sm:w-80 circle-paused">
+<button class="ripple"><svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" stroke-width="5" viewBox="0 0 200 100" class="inline-block h-12 ripple text-current">
+  <!-- Left Circle -->
+  <circle fill="none" stroke="currentColor" stroke-width="inherit" r="30" cx="50%" style="animation-duration: 10s;" cy="32" class="path"></circle>
+</svg>
+<span class="absolute inset-0 text-xl">•</span></button><button class="ripple"><svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" stroke-width="5" viewBox="0 0 200 100" class="inline-block h-12 ripple text-current">
+  <!-- Left Circle -->
+  <circle fill="none" stroke="currentColor" stroke-width="inherit" r="30" cx="50%" style="animation-duration: 10s;" cy="32"></circle>
+</svg>
+<span class="absolute inset-0 text-xl">•</span></button><button class="ripple"><svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" stroke-width="5" viewBox="0 0 200 100" class="inline-block h-12 ripple text-current">
+  <!-- Left Circle -->
+  <circle fill="none" stroke="currentColor" stroke-width="inherit" r="30" cx="50%" style="animation-duration: 10s;" class="" cy="32"></circle>
+</svg>
+<span class="absolute inset-0 text-xl">•</span></button><button class="ripple"><svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" stroke-width="5" viewBox="0 0 200 100" class="inline-block h-12 ripple text-current">
+  <!-- Left Circle -->
+  <circle fill="none" stroke="currentColor" stroke-width="inherit" r="30" cx="50%" style="animation-duration: 10s;" class="" cy="32"></circle>
+</svg>
+<span class="absolute inset-0 text-xl">•</span></button><button class="ripple"><svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" stroke-width="5" viewBox="0 0 200 100" class="inline-block h-12 ripple text-current">
+  <!-- Left Circle -->
+  <circle fill="none" stroke="currentColor" stroke-width="inherit" r="30" cx="50%" style="animation-duration: 10s;" class="" cy="32"></circle>
+</svg>
+<span class="absolute inset-0 text-xl">•</span></button>
+  </main></aside>
+  </main>
 
-<div class="text-center text-red-400"><svg class="m-auto p-2 h-14 w-14" id="code" viewBox="0 0 640 512"><path d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"></path></svg><p class="mt-2 font-fantasy text-xs" style="font-family: cursive;">&lt; 630 bytes of JS</p></div><div class="text-center text-green-200"><svg class="m-auto p-2 h-14 w-14" id="circle-notch" viewBox="0 0 512 512"><path d="M288 39.056v16.659c0 10.804 7.281 20.159 17.686 23.066C383.204 100.434 440 171.518 440 256c0 101.689-82.295 184-184 184-101.689 0-184-82.295-184-184 0-84.47 56.786-155.564 134.312-177.219C216.719 75.874 224 66.517 224 55.712V39.064c0-15.709-14.834-27.153-30.046-23.234C86.603 43.482 7.394 141.206 8.003 257.332c.72 137.052 111.477 246.956 248.531 246.667C393.255 503.711 504 392.788 504 256c0-115.633-79.14-212.779-186.211-240.236C302.678 11.889 288 23.456 288 39.056z"></path></svg><p class="mt-2 font-fantasy text-xs" style="font-family: cursive;">Better UI/UX out of the box</p></div>
-<div class="text-center text-pink-200"><svg class="m-auto p-2 h-14 w-14" id="certificate" viewBox="0 0 512 512"><path d="M458.622 255.92l45.985-45.005c13.708-12.977 7.316-36.039-10.664-40.339l-62.65-15.99 17.661-62.015c4.991-17.838-11.829-34.663-29.661-29.671l-61.994 17.667-15.984-62.671C337.085.197 313.765-6.276 300.99 7.228L256 53.57 211.011 7.229c-12.63-13.351-36.047-7.234-40.325 10.668l-15.984 62.671-61.995-17.667C74.87 57.907 58.056 74.738 63.046 92.572l17.661 62.015-62.65 15.99C.069 174.878-6.31 197.944 7.392 210.915l45.985 45.005-45.985 45.004c-13.708 12.977-7.316 36.039 10.664 40.339l62.65 15.99-17.661 62.015c-4.991 17.838 11.829 34.663 29.661 29.671l61.994-17.667 15.984 62.671c4.439 18.575 27.696 24.018 40.325 10.668L256 458.61l44.989 46.001c12.5 13.488 35.987 7.486 40.325-10.668l15.984-62.671 61.994 17.667c17.836 4.994 34.651-11.837 29.661-29.671l-17.661-62.015 62.65-15.99c17.987-4.302 24.366-27.367 10.664-40.339l-45.984-45.004z"></path></svg><p class="mt-2 font-fantasy text-xs" style="font-family: cursive;">backwards compatibility guarantee</p></div><div class="text-center text-pink-200"><svg class="m-auto p-2 h-14 w-14" id="seedling" viewBox="0 0 512 512"><path d="M64 96H0c0 123.7 100.3 224 224 224v144c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V320C288 196.3 187.7 96 64 96zm384-64c-84.2 0-157.4 46.5-195.7 115.2 27.7 30.2 48.2 66.9 59 107.6C424 243.1 512 147.9 512 32h-64z"></path></svg><p class="mt-2 font-fantasy text-xs" style="font-family: cursive;">plain'ol CSS styling awaiting customizations</p></div></section></article></section>
-  <section class="sm:border-t-0 sm:border-l-2 border-t-2 text-center text-sm space-y-2 p-4 flex-1"><h2 class="font-semibold text-base font-serif">Responsively collapses or expands the items on a nav</h2><p>you can easily prioritize a link to always show no matter the viewport size by placing it first in the navigation using this design approach</p></section></main>
-  <script>function grow_shrink(e,i,c,n,d){d=grow_shrink,n=[500,640,768,1024,1280],c=document.createElement("div"),d.cached||={},d.arr||=[].slice.call((d.el=window.growShrink).querySelectorAll(".fluid")),d.dump||=d.el.querySelector("a+div>div"),(e=n.find(((c,n)=>(i=n,c>e))))&&d.vw!==e&&!d.cached[d.vw=e]&&d.arr.forEach(((n,r,o,l)=>{r+1>i&&(l=(n=n.cloneNode(!0)).classList.contains("clicked"),!0)&&(n.className=l?"clicked":"",c.appendChild(n)),d.cached[e]||=c})),d.dump.replaceChild(d.cached[e]||c,d.dump.firstChild)}grow_shrink(window.innerWidth),window.onresize=function(){setTimeout((function(){grow_shrink(window.innerWidth)}),500)};
+<!--mockup images-->
+<aside class="md:relative absolute inset-0 opacity-30 md:opacity-100 h-full w-full done duration-700 ease-out">
+<div class="inset-0 absolute bg-cover" style="background-image:url(/mockups/company-1.png)"></div></aside>
+<canvas id="gradient" width="1366" height="600" class="w-full h-full absolute bg-white duration-300 ease-out" ontransitionend="event.propertyName=='opacity'&&enter()"></canvas>
+  
+</section>
+<section class="vh-full"></section>
+
+<nav id="growShrink" class="text-center fixed tooltip slide-y no-hover no-focus text-sm bottom-7 left-0 right-0">
+<div style="--px:0.5em; --py:0.5em; --tw-bg-opacity:calc(var(--bg-opacity-pad) + 0.6)" class="rounded-full bg-white [&>*]:align-middle rounded-inherit [&>*]:rounded-inherit inline-block [&>*]:p-xy backdrop-filter backdrop-blur p-1 lg:p-3 sm:p-2 cursor-pointer shadow border border-gray-300">
+<a class="hover:bg-pink-400 relative"><div class="out decorate inset-0 absolute tooltip" style="z-index: auto"><div style="--tw-bg-opacity: 0.5; --tw-scale-x:1.2; --tw-scale-y:var(--tw-scale-x);" class="bg-pink-300 inset-0 absolute p-0 rounded-full duration-300 ease-out"></div></div><span class="mx-2 relative"><i class="text-yellow-700 fa fa-mouse-pointer"></i> select</span></a><span></span><a class="hover:bg-pink-400 relative fluid base:show"><div class="out decorate inset-0 absolute tooltip" style="z-index: auto"><div class="bg-pink-300 inset-0 absolute p-0 rounded-full duration-300 ease-out" style="--tw-bg-opacity: 0.5; --tw-scale-x:1.2; --tw-scale-y:var(--tw-scale-x);"></div></div><span class="relative"><i class="fa fa-pen-nib"></i> design mode</span></a><span class="sm:relative absolute"></span><a class="hover:bg-pink-400 relative fluid sm:show"><div class="out decorate inset-0 absolute tooltip" style="z-index: auto"><div class="bg-pink-300 inset-0 absolute p-0 rounded-full duration-300 ease-out" style="--tw-bg-opacity: 0.5; --tw-scale-x:1.2; --tw-scale-y:var(--tw-scale-x);"></div></div><span class="relative"><i class="fa fa-th"></i>  Npx grid</span></a><!--<span class="md:relative absolute"></span><a class="fluid md:show hover:bg-yellow-600 bg-yellow-500" data-i="3"><div class="out decorate inset-0 absolute tooltip" style="z-index: auto"><div class="bg-yellow-500 inset-0 absolute p-0 rounded-full duration-300 ease-out" style="--tw-bg-opacity: 0.5; --tw-scale-x:1.2; --tw-scale-y:var(--tw-scale-x);"></div></div><span class="relative"><i class="fa fa-font"></i><i class="fa fa-project-diagram"></i> assets</span></a>--><span class="md:relative absolute"></span><a class="fluid lg:show hover:bg-pink-400 relative"><div class="out decorate inset-0 absolute tooltip" style="z-index: auto"><div class="bg-pink-300 inset-0 absolute p-0 rounded-full duration-300 ease-out" style="--tw-bg-opacity: 0.5; --tw-scale-x:1.2; --tw-scale-y:var(--tw-scale-x);"></div></div><span class="relative"><i class="fa fa-file-import"></i> I/O <i class="fa fa-file-export"></i></span></a>
+            <div class="text-center lg:absolute lg:invisible relative" style="padding:0">
+                <button class="hover:bg-gray-300 ripple relative text-current" style="border-color: currentcolor;">•••</button>
+                <div style="padding:0px; --tw-bg-opacity:calc(var(--bg-opacity-pad) + 0.7)" class="border border-gray-400 text-sm bg-white bottom-full backdrop-filter backdrop-blur"><div></div>
+                </div>
+            </div>
+            </div>
+</nav></main>
+<script>
+let loadImgs=(srcs, invk, all)=>{
+  let count=0;
+  srcs.forEach((src, img)=>{
+    (img=new Image()).src=src, img.onload=_=>all ? ++count===srcs.length&&invk?.call(null, srcs) : invk?.call(null,src)
+  })
+}, mockups=['2:company.png', '3:stack.png','8:mockup.png', '5:web-sql.png', 'node-server.png'], loadMockups=(i, invk, all)=>{
+  let itm=mockups[i].split(':'), srcs=N(+itm[0]).map((n, nm)=>'/mockups/'+((nm=itm[1].split('.'))[0]+='-'+n+'.'+nm[1]));
+  srcs[0]||='/mockups/'+mockups[i], loadImgs(srcs, invk, all)
+};
+/*handles animations and interactions on page after scaffold */
+function enter() {
+  let secs = qS('main>section',!0);
+  ['.done', '.rotext', '.tooltip'].forEach((s,i)=>qS(s,0,secs[0]).classList[cLs(i)](i?'show':'done'))
+}
+  
+</script><script>
+  function onScroll(page, mthd, sTop, t, nav, heap) {
+    !(t = onScroll).lastY&&(t.lastY=0), sTop = page.scrollY||page.scrollTop, nav=qS('nav.topCta'),
+    mthd = cLs, nav&&['show'/*, 'relative', 'absolute'*/]
+    .forEach((e, i, a, cls)=>{(cls = nav.classList)[mthd(heap = sTop < t.lastY)](e),
+      i===2&&cls[mthd(!heap)](e), i===1&&cls[mthd(heap)](e)
+    }),
+    setTimeout(_=>t.lastY=sTop);
+    return t.lastY/(page.scrollHeight||innerHeight)
+  }
+  let DOMLoaded, ratio;
+  w_Ev_dom(_=>{
+    Ev('scroll')(qS('main'))(function(ev){
+      requestAnimationFrame(_=>{
+        ratio = onScroll(this), console.log('::SCROLL-RATIO::', ratio)
+     })
+    }), DOMLoaded=!0,
+    animations.addRippleAnimations(),
+    _debug||new Gradient({
+      canvas: 'canvas#gradient',
+      colors: ['#1e3a8a', '#7f1d1d', '#f59e0b']
+    })
+  })
+  let dev={}, preload=_=>fetch('data.json').then(r=>r.json()).then(data=>{
+    let vw=innerWidth, rz, h=qS('.scaffold h2'), hr=qS('.scaffold div>hr'), ul=Abbr.to(h,{2:'nES'}).children[1]; togl(Abbr.to(h,{2:'fEC'}), ['md:m-4', 'm-1.5']), togl(Abbr.to(h,'lEC'), ['absolute','show']),
+    
+    togl(hr,['','-x'].map(s=>'to-fro'+s)),/*slicing out first three skils because only three can appear without overlays in vertical marquee*/
+    ul.innerHTML = (dev=data).skills.slice(0,3).map((e,i,t)=>`<li class=truncate>${e}</li>`).join(''), w_Ev_rz(rz=_vw=>{
+      (_vw &&= [500, 640, 768, 1024].find(w=>w>innerWidth)) !== vw&&(vw=_vw, console.log('::RERUN::', vw),  [].forEach.call(ul.children,(e,i,es,t=4,it,s,n,v,r)=>{
+        v = (r=el=>['Top','Height'].reduce((_n,p)=>el['offset'+p]+_n,0))(es[0])/t, //velocity
+        s=r(e), it=s/v, //time interpolated by proportion
+        e.style.cssText=`--px:-${s}px; --t:${i?it:t}s`
+      }))
+    }), Abbr.to(ul,'pN').ontransitionend=function(){ rz(), ul.classList.add('marquee-y'), togl(hr,'rounded-full'), /*use loaded state of other assets on page */
+      delay(_=>{ togl(hr,['to-fro-x','rounded-full']), Abbr.to(h,['pES','fEC','cL']).replace('absolute','show') }, 1e3)
+    },
+    ['', 'p','n'].forEach((s,i)=>delay(_=>togl(Abbr.to(ul,['pN',s+'ES']), ['absolute','show']), 1e3 + (i>1) * 2e3))
+  })
 </script>
-<!-- </body> --></body></html>
+
+
+</body></html>
