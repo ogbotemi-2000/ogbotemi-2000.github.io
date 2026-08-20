@@ -1,7 +1,7 @@
 {
   "name": "ogbotemi-2000.github.io",
   "version": "1.0.0",
-  "description": "For GitHub pages\r <!DOCTYPE HTML><html lang=\"en\"><head>\r     <title>Product Preview</title>\r     <meta charset=\"utf-8\">\r     <meta name=\"theme-color\" content=\"#ff056\">\r     <meta name=\"color-scheme\" content=\"light\">\r     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r     <link rel=\"stylesheet\" href=\"../css/selar.css\">\r </head>",
+  "description": "Github portfolio and staging area",
   "main": "test.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
