@@ -1,6 +1,9 @@
 {
 	"skills": [
-		"Remote device management", "User data tracking", "Non-rooted device intelligence",
-		"Privacy compliant monitoring", "Data tracking on Android or IOS", "None-the-wiser monitoring"
+		"VPS setup and SSH", "Cloudflare Workers & Pages", "Vercel serverless functions",
+		"Cloudflare DNSSEC setup", "Speech-To-Text backend", "Fullstack web development",
+		"UI/UX prototyping", "Web-based ELT pipeline", "Node.js API server", "Custom Node.js backend",
+		"Database migrations", "Massive data cleansing", "Data read/write operations",
+		"Custom CMS web-service", "GoHighLevel app development", "Shopify app development"
 	]
 }
